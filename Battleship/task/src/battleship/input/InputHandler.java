@@ -16,4 +16,11 @@ public class InputHandler {
 
         return new DeploymentCoordinates(start, end);
     }
+
+    public Coordinate getTarget(String input) {
+        if(input.length() != 2){
+            throw new IllegalArgumentException("Not valid input for target.");
+        }
+        return new Coordinate(input.charAt(0), Integer.parseInt(input.substring(1)));
+    }
 }

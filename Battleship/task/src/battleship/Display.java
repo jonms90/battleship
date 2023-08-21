@@ -2,6 +2,7 @@ package battleship;
 
 public class Display {
     public void columnHeader() {
+        System.out.println();
         System.out.println("  1 2 3 4 5 6 7 8 9 10");
     }
 
@@ -23,5 +24,20 @@ public class Display {
 
     public void error(String error){
         System.out.println(error);
+    }
+
+    public void gameStart() {
+        System.out.println();
+        System.out.println("The game starts!");
+    }
+
+    public void takeShot() {
+        System.out.println();
+        System.out.println("Take a shot!");
+    }
+
+    public void shot(boolean lastShotWasHit) {
+        System.out.println();
+        System.out.println(lastShotWasHit ? "You hit a ship!" : "You missed!");
     }
 }

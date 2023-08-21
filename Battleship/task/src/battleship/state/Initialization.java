@@ -59,6 +59,16 @@ public class Initialization implements GameState{
         }
     }
 
+    @Override
+    public void enter(Display display, Board board) {
+
+    }
+
+    @Override
+    public void exit(Display display, Board board) {
+        render(display, board);
+    }
+
     private LinkedList<Ship> createShips() {
         LinkedList<Ship> ships = new LinkedList<>();
         ships.add(new Ship("Aircraft Carrier", 5));

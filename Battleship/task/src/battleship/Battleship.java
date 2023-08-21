@@ -1,9 +1,9 @@
 package battleship;
 
 import battleship.input.InputHandler;
+import battleship.state.GameOver;
 import battleship.state.GameState;
 import battleship.state.Initialization;
-import battleship.state.Playing;
 
 public class Battleship {
     private Board _board;
@@ -27,11 +27,12 @@ public class Battleship {
     public void update(String input) {
         GameState newState = _state.update(input, _inputHandler, _board);
         if(newState != null){
-            _state.render(_display, _board);
+            _state.exit(_display, _board);
             _state = newState;
+            _state.enter(_display, _board);
         }
 
-        if(_state.getClass() == Playing.class){
+        if(_state.getClass() == GameOver.class){
             _gameOver = true; // TODO: This is not how the game should end.
         }
     }

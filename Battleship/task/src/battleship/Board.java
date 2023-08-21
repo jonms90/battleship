@@ -49,4 +49,18 @@ public class Board {
 
         return true;
     }
+
+    public void shoot(Coordinate target) {
+        int targetRow = target.getRow() - 1;
+        int targetColumn = target.getColumn() - 1;
+        if(isHit(target)){
+            _board[targetRow][targetColumn] = 'X';
+        }else{
+            _board[targetRow][targetColumn] = 'M';
+        }
+    }
+
+    public boolean isHit(Coordinate target) {
+        return _board[target.getRow() - 1][target.getColumn() - 1] != '~';
+    }
 }
