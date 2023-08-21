@@ -51,15 +51,16 @@ public class Playing implements GameState{
     @Override
     public void enter(Display display, Board board) {
         display.gameStart();
-        board.render();
+        board.renderWithFog();
         display.takeShot();
     }
 
     @Override
     public void exit(Display display, Board board) {
         if(_shotsFired){
-            board.render();
+            board.renderWithFog();
             display.shot(_lastShotWasHit);
+            board.render();
         }
     }
 }

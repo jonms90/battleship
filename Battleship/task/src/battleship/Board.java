@@ -28,9 +28,17 @@ public class Board {
     }
 
     public void render() {
+        render(false);
+    }
+
+    public void renderWithFog() {
+        render(true);
+    }
+
+    private void render(boolean fogOfWar) {
         _display.columnHeader();
         for(int i = 0; i < _board.length; i++){
-            _display.row(i, _board[i]);
+            _display.row(i, _board[i], fogOfWar);
         }
     }
 
