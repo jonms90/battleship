@@ -71,4 +71,14 @@ public class Board {
     public boolean isHit(Coordinate target) {
         return _board[target.getRow() - 1][target.getColumn() - 1] != '~';
     }
+
+    public boolean isDestroyed(Ship s) {
+        for(Coordinate c : s.getCoordinates()){
+            if(_board[c.getRow() - 1][c.getColumn() - 1] != 'X'){
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

@@ -43,6 +43,16 @@ public class Display {
 
     public void shot(boolean lastShotWasHit) {
         System.out.println();
-        System.out.println(lastShotWasHit ? "You hit a ship!" : "You missed!");
+        System.out.println(lastShotWasHit ? "You hit a ship! Try again" : "You missed. Try again:");
+    }
+
+    public void destroyed() {
+        System.out.println();
+        System.out.println("You sank a ship! Specify a new target:");
+    }
+
+    public void victory() {
+        System.out.println();
+        System.out.println("You sank the last ship. You won. Congratulations!");
     }
 }

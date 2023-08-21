@@ -18,7 +18,8 @@ public class InputHandler {
     }
 
     public Coordinate getTarget(String input) {
-        if(input.length() != 2){
+        int length = input.length();
+        if(length != 2 && length != 3){
             throw new IllegalArgumentException("Not valid input for target.");
         }
         return new Coordinate(input.charAt(0), Integer.parseInt(input.substring(1)));

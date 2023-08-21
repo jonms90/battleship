@@ -11,11 +11,13 @@ import java.util.LinkedList;
 public class Initialization implements GameState{
 
     private final LinkedList<Ship> _shipsToDeploy;
+    private final LinkedList<Ship> _fleet;
     private final LinkedList<String> _errors;
 
     public Initialization(){
         _errors = new LinkedList<>();
         _shipsToDeploy = createShips();
+        _fleet = new LinkedList<>();
     }
 
     @Override
@@ -35,8 +37,10 @@ public class Initialization implements GameState{
             }
 
             board.placeShip(coordinates);
+            nextShip.setCoordinates(coordinates.getCoordinates());
             _shipsToDeploy.removeFirst();
-            return _shipsToDeploy.isEmpty() ? new Playing() : null;
+            _fleet.add(nextShip);
+            return _shipsToDeploy.isEmpty() ? new Playing(_fleet) : null;
         } catch(IllegalArgumentException ex){
             _errors.add(String.format("Error! Wrong ship location! Try again:%n"));
             return null;

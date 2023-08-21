@@ -17,7 +17,8 @@ public class GameOver implements GameState{
 
     @Override
     public void enter(Display display, Board board) {
-
+        board.render();
+        display.victory();
     }
 
     @Override
